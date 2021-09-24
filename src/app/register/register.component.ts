@@ -37,16 +37,18 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    this.sharedService.registerUser(this.registerForm.value)
-    .then(res=>{
-      if(!res.success){
-        this.snackBar.open(res.status, 'Close', {verticalPosition:'top', duration:2000});
-      }
-      else{
-        this.snackBar.open('Successfully Registered. Please login!', 'Close', {verticalPosition:'top', duration:2000});
-        this.router.navigateByUrl('');
-      }
-    })
+    if(this.registerForm.valid){
+      this.sharedService.registerUser(this.registerForm.value)
+      .then(res=>{
+        if(!res.success){
+          this.snackBar.open(res.status, 'Close', {verticalPosition:'top', duration:2000});
+        }
+        else{
+          this.snackBar.open('Successfully Registered. Please login!', 'Close', {verticalPosition:'top', duration:2000});
+          this.router.navigateByUrl('');
+        }
+      })
+    }
   }
 
 }

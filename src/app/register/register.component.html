@@ -13,7 +13,7 @@
                     <input matInput type="text" formControlName="name">
                     <mat-error *ngIf="registerForm.controls.name.invalid"> {{getErrorMessage(registerForm.controls.name)}}</mat-error>
                 </mat-form-field>
-                <button mat-raised-button color="primary" type="submit"> Register </button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid"> Register </button>
             </form>
         </mat-card-content>
         <mat-card-actions>
