@@ -1,0 +1,18 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>Job Assignment Login</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                    <mat-label>User ID</mat-label>
+                    <input matInput type="text" formControlName="userId">
+                    <mat-error *ngIf="loginForm.controls.userId.invalid"> {{getErrorMessage(loginForm.controls.userId)}}</mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid"> Login </button>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            If not register, please <a [routerLink]="['/signup']">click here</a>  to register !
+        </mat-card-actions>
+    </mat-card>
+</div>

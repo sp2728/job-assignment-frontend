@@ -1,0 +1,8 @@
+<div class="container">
+    <div>
+        <h1 *ngIf="userId"> UserId: {{userId}} </h1>
+        <button mat-raised-button color="primary" (click)="displayChart()"> Click Here </button>
+        <button mat-raised-button color="warn" (click)="logout()"> Logout </button>
+    </div>
+    <canvas #chart width="600" height="200"></canvas>
+</div>
